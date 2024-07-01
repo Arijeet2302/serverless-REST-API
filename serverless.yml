@@ -1,0 +1,28 @@
+org: arijeet2302
+app: aws-serverless-express-api
+service: express-api
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: ap-south-1
+
+functions:
+  hello:
+    handler: index.handler
+    events:
+      - httpApi:
+          path: /
+          method: get
+      - httpApi:
+          path: /api/items/create
+          method: post
+      - httpApi:
+          path: /api/items
+          method: get
+      - httpApi:
+          path: /api/items/update
+          method: post
+      - httpApi:
+          path: /api/items/delete
+          method: delete
